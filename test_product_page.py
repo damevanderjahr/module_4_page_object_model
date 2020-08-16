@@ -82,7 +82,6 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page.should_not_be_success_message()
 
 
-@pytest.mark.skip #pass
 def test_guest_cant_see_success_message(browser):
     page = ProductPage(browser, link)
     page.open()
@@ -94,10 +93,9 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.add_product_to_basket()
-    page.should_dissaper_message()
+    page.should_disappear_message()
 
 
-@pytest.mark.skip
 def test_guest_should_see_login_link_on_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
@@ -122,6 +120,3 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page = BasketPage(browser, browser.current_url)
     page.is_no_item_to_buy()
     page.is_basket_empty()
-
-
-

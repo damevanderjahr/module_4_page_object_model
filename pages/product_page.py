@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
-from selenium.webdriver.support import expected_conditions as EC
 import math
 
 
@@ -71,8 +70,6 @@ class ProductPage(BasePage):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
 
-    def should_dissaper_message(self):
+    def should_disappear_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
-            "Success message is presented, but should be dissapered"
-
-
+            "Success message is presented, but should be disappeared"

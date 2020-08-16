@@ -1,15 +1,15 @@
 from selenium.webdriver.common.by import By
 
 
-class BasePageLocators():
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini .btn:nth-child(1)")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
-class BasketPageLocators():
-    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, ".content #content_inner p")
+class BasketPageLocators:
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, ".content #content_inner > p")
     ITEMS_TO_BUY_TEXT = (By.CSS_SELECTOR, ".content #content_inner h2")
 
 
