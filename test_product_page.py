@@ -7,7 +7,7 @@ import time
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 login_link = "http://selenium1py.pythonanywhere.com/accounts/login/"
 
-@pytest.mark.autorized
+@pytest.mark.authorized
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
@@ -22,11 +22,13 @@ class TestUserAddToBasketFromProductPage:
     def test_user_cant_see_success_message(self, browser):
         page = ProductPage(browser, link)
         page.open()
+        page.should_be_authorized_user()
         page.should_not_be_success_message()
 
     def test_user_can_add_product_to_basket(self, browser):
         page = ProductPage(browser, link)
         page.open()
+        page.should_be_authorized_user()
         page.add_product_to_basket()
         page.check_added_product()
 
