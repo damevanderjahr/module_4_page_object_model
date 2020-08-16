@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.webdriver.support import expected_conditions as EC
 import math
 
 
@@ -26,7 +27,8 @@ class ProductPage(BasePage):
         self.should_be_add_product_button()
         add_button = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         add_button.click()
-#        self.solve_quiz_and_get_code()
+        if self.is_alert_present():
+            self.solve_quiz_and_get_code()
 
     def should_be_product_name(self):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "Product name is not presented"

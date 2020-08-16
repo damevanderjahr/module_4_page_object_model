@@ -19,11 +19,20 @@ class BasePage():
         basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
         basket_button.click()
 
+    def is_alert_present(self):
+        try:
+            WebDriverWait(self.browser, 1).until(EC.alert_is_present())
+        except TimeoutException:
+            return False
+
+        return True
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
         except NoSuchElementException:
             return False
+
         return True
 
     def is_not_element_present(self, how, what, timeout=4):
